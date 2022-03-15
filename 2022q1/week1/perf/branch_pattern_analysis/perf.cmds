@@ -1,1 +1,4 @@
-$perf record -e branch-misses:u,branch-instructions:u ./${executable}
+$ gcc -g -o ${executable} ${source_code}
+$ perf record -e branch-misses:u,branch-instructions:u ./${executable}
+$ perf report
+$ perf annotate ./${executable}
