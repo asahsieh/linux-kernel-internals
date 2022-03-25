@@ -1,0 +1,2 @@
+$ gcc -o case2 -g case2.c 
+$ valgrind -q --leak-check=full ./case2
