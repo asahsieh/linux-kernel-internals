@@ -5,16 +5,16 @@ if ! test -d .git; then
     exit 1
 fi
 
-ACCOUNT=$(git config -l | grep -w remote.origin.url | sed -e 's/^.*github.com[\/:]\(.*\)\/lab0-c.*/\1/')
+ACCOUNT=$(git config -l | grep -w remote.origin.url | sed -e 's/^.*github.com[\/:]\(.*\)\/linux-kernel-internals.*/\1/')
 
 CURL_RES=$(curl -s \
 -H "Accept: application/vnd.github.v3+json" \
-https://api.github.com/repos/${ACCOUNT}/lab0-c/actions/workflows)
+https://api.github.com/repos/${ACCOUNT}/linux-kernel-internals/actions/workflows)
 
 TOTAL_COUNT=$(echo ${CURL_RES} | sed -e 's/.*"total_count": \([^,"]*\).*/\1/')
 case ${TOTAL_COUNT} in
     *"Not Found"*)
-        echo "Check your repository. It should be located at https://github.com/${ACCOUNT}/lab0-c"
+        echo "Check your repository. It should be located at https://github.com/${ACCOUNT}/linux-kernel-internals"
         exit 1
 esac
 

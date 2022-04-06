@@ -4,7 +4,8 @@ CFLAGS = -O1 -g -Wall -Werror -I.
 
 GIT_HOOKS := .git/hooks/applied
 DUT_DIR := dudect
-all: $(GIT_HOOKS) qtest
+#all: $(GIT_HOOKS) qtest
+all: qtest
 
 tid := 0
 
