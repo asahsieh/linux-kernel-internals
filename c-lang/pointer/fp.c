@@ -1,14 +1,16 @@
 #include <stdio.h>
 
 // fptr is a pointer, point to a function
-void (*fptr) ();
+void (*fptr)();
 
 // an empty function
-void test() {
+void test()
+{
     ;
 }
 
-int main() {
+int main()
+{
     fptr = test;
     printf("test: %x, fptr: %x\n", test, fptr);
     return 0;
