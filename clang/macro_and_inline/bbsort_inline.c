@@ -36,7 +36,7 @@ inline void bbsort(int *A, size_t n)
     size_t i, j;
 
 #ifndef CONS_3_SAME_TRANS_UNIT
-    static int swap_cnt = 0;
+    int swap_cnt = 0;
     printf("CONS_3_SAME_TRANS_UNIT isn't defined.\n");
 #endif
     for (i = 0; i < n; i++) {
