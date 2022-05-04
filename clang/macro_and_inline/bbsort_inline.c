@@ -2,12 +2,10 @@
 #include <stddef.h>  // for size_t
 #include <stdio.h>
 
-inline static void swap(int *, int *); /* swap的宣告 */
-extern void bbsort(int *, size_t);     /* bbsort的宣告 */
+extern void swap(int *, int *) __attribute__((always_inline)); /* swap的宣告 */
+inline static void bbsort(int *, size_t); /* bbsort的宣告 */
 
-#ifdef CONS_3_SAME_TRANS_UNIT
 static int swap_cnt = 0;
-#endif
 
 int main(int argc, char *argv[])
 {
@@ -22,28 +20,24 @@ int main(int argc, char *argv[])
     return 0;
 }
 
-/* swap定義，static與inline可有可無，因為宣告端已指示 */
-void swap(int *pa, int *pb)
+/* swap的定義。因為宣告端只有以extern指示，extern可有可無，但inline則必要 */
+inline void swap(int *pa, int *pb)
 {
     int t = *pa;
     *pa = *pb;
     *pb = t;
+    swap_cnt++;
 }
 
-/* bbsort的定義。因為宣告端只有以extern指示，extern可有可無，但inline則必要 */
-inline void bbsort(int *A, size_t n)
+/* bbosrt定義，static與inline可有可無，因為宣告端已指示 */
+void bbsort(int *A, size_t n)
 {
     size_t i, j;
 
-#ifndef CONS_3_SAME_TRANS_UNIT
-    int swap_cnt = 0;
-    printf("CONS_3_SAME_TRANS_UNIT isn't defined.\n");
-#endif
     for (i = 0; i < n; i++) {
         for (j = i + 1; j < n; j++) {
             if (A[i] > A[j]) {
                 swap(A + i, A + j);
-                swap_cnt++;
             }
         }
     }
