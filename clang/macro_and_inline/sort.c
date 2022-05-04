@@ -14,11 +14,17 @@ inline void bbsort(int *A, size_t n)
 {
     size_t i, j;
 
+    if (!swap_cnt)
+        swap_cnt = 0;
+
     for (i = 0; i < n; i++) {
         for (j = i + 1; j < n; j++) {
             if (A[i] > A[j]) {
                 swap(A + i, A + j);
+                swap_cnt++;
             }
         }
     }
+
+    printf("bbsort::swap_cnt=%d\n", swap_cnt);
 }

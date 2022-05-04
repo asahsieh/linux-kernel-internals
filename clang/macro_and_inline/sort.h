@@ -4,4 +4,5 @@
 #include <stdio.h>
 inline static void swap(int *, int *);
 extern void bbsort(int *, size_t);
+static int swap_cnt;
 #endif
