@@ -1,5 +1,9 @@
 #include "sort.h"
 
+#ifdef SEMANTICS_5_EXTERN_DEF_IN_ANTHER_TRNS_UNIT
+inline static void swap(int *, int *);
+#endif
+
 int main(int argc, char *argv[])
 {
     int A[] = {7, 2, 4, 6, 9, 8};

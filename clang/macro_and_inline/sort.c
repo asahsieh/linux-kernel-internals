@@ -1,5 +1,9 @@
 #include "sort.h"
 
+#ifdef SEMANTICS_5_EXTERN_DEF_IN_ANTHER_TRNS_UNIT
+extern void swap(int *, int *);
+#endif
+
 /* 屬於sort.c的swap定義 */
 void swap(int *pa, int *pb)
 {
