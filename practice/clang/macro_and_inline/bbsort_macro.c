@@ -1,21 +1,25 @@
 #include <stdio.h>
 
+// warning: "true" redefined
+// The order of sorted number will in DESCENDING order:
+#ifdef ERR_INJ_SETTING_TRUE_0
+#define true 0
+#endif
+
 /* SWAP的巨集定義 */
+#ifndef ERR_INJ_INGNORING_BRACKETS
 #define SWAP(a, b) \
     {              \
         int t = a; \
         a = b;     \
         b = t;     \
     }
-
-// error: ‘t’ undeclared
-/*
+#else  // error: ‘t’ undeclared
 #define SWAP(a, b) \
     int t = a;     \
     a = b;         \
-    b = t;         \
-*/
-
+    b = t;
+#endif
 
 void bbsort(int *A, size_t n)
 {
