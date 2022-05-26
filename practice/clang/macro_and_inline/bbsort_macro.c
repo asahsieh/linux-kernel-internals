@@ -27,7 +27,11 @@ void bbsort(int *A, size_t n)
 
     for (i = 0; i < n; i++) {
         for (j = i + 1; j < n; j++) {
+#ifdef ERR_INJ_SETTING_TRUE_0
+            if (A[i] > A[j] == true)
+#else
             if (A[i] > A[j])
+#endif
                 SWAP(A[i], A[j]);
         }
     }
