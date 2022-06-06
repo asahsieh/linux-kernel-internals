@@ -15,6 +15,7 @@
  * Use `t` as a type to declare a variable directly
  *
  */
+#ifndef SOLUTION_2
 #define swap(t, x, y) \
     {                 \
         t _z;         \
@@ -22,6 +23,18 @@
         y = x;        \
         x = _z;       \
     }
+#else
+/*
+ * Sol_2: Use `typeof()` on `t`
+ */
+#define swap(t, x, y) \
+    {                 \
+        typeof(t) _z; \
+        _z = y;       \
+        y = x;        \
+        x = _z;       \
+    }
+#endif
 
 /*
  * Use macro to interchange values in variables
