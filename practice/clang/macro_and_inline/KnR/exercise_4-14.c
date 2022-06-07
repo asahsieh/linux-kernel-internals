@@ -16,12 +16,15 @@
  *
  */
 #ifndef SOLUTION_2
-#define swap(t, x, y) \
-    {                 \
-        t _z;         \
-        _z = y;       \
-        y = x;        \
-        x = _z;       \
+#define swap(t, x, y)                                                         \
+    {                                                                         \
+        t _z;                                                                 \
+        printf("In swap(): Original values:\tx=%d\ty=%d\t_z=%d\n", x, y, _z); \
+        _z = y;                                                               \
+        printf("In swap(): Assign y to z:\tx=%d\ty=%d\t_z=%d\n", x, y, _z);   \
+        y = x;                                                                \
+        x = _z;                                                               \
+        printf("In swap(): Exanged values:\tx=%d\ty=%d\t_z=%d\n", x, y, _z);  \
     }
 #else
 /*
@@ -47,12 +50,12 @@ int main(int argc, char *argv[])
     int y = 5;
     int _z = 15;
 
-    printf("Original values:\tx=%d\ty=%d\n", x, y);
+    printf("Original values:\t\ty=%d\tx=%d\n", y, x);
     swap(int, y, x);
-    printf("Exchanged values:\tx=%d\ty=%d\n", x, y);
-    printf("Original values:\tx=%d\t_z=%d\n", x, _z);
+    printf("Exchanged values:\t\ty=%d\tx=%d\n\n", y, x);
+    printf("Original values:\t\t_z=%d\tx=%d\n", _z, x);
     swap(int, _z, x);
-    printf("Exchanged values:\tx=%d\t_z=%d\n", x, _z);
+    printf("Exchanged values:\t\t_z=%d\tx=%d\n", _z, x);
 
     return 0;
 }
