@@ -28,7 +28,7 @@ int main(int argc, char *argv[])
 {
     printf("%zu\n", sizeof(Student_flo));          /* 13 */
     printf("%zu\n", sizeof(struct Student_dou));   /* 21 */
-    printf("%zu\n", _Alignof(Student_flo));        /*  1, as the same as the
+    printf("%zu\n", _Alignof(Student_flo));        /*  1, as the same as
                                                       the setting number, 1,
                                                       in #pragma pack()      */
     printf("%zu\n", _Alignof(struct Student_dou)); /* should be 8 on
